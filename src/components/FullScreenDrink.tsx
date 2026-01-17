@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Drink } from '@/data/drinks';
 import { toast } from 'sonner';
 import ParticleField from './ParticleField';
@@ -104,9 +104,9 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                 <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(0,0,0,0.8)]" />
             </motion.div>
 
-            {/* Content Layer - Medium depth */}
+            {/* Content Layer - Medium depth - RESPONSIVE */}
             <motion.div
-                className="relative z-20 w-full h-full flex flex-col items-start justify-end pb-32 px-10 md:px-32"
+                className="relative z-20 w-full h-full flex flex-col items-start justify-end pb-16 sm:pb-20 md:pb-32 px-4 sm:px-8 md:px-16 lg:px-32"
                 style={{
                     transformStyle: 'preserve-3d',
                 }}
@@ -119,11 +119,11 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                     ease: [0.16, 1, 0.3, 1],
                 }}
             >
-                <div className="max-w-5xl">
+                <div className="w-full max-w-5xl">
 
-                    {/* Brand Tagline - 3D Card entrance */}
+                    {/* Brand Tagline - 3D Card entrance - RESPONSIVE */}
                     <motion.div
-                        className="flex items-center gap-6 mb-6 opacity-60"
+                        className="flex items-center gap-3 sm:gap-4 md:gap-6 mb-3 sm:mb-4 md:mb-6 opacity-60"
                         initial={{ rotateX: -90, opacity: 0, z: -100 }}
                         animate={isActive ? {
                             rotateX: 0,
@@ -141,15 +141,15 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                         }}
                         style={{ transformStyle: 'preserve-3d' }}
                     >
-                        <div className="w-12 h-[2px] bg-accent" />
-                        <span className="text-xs font-black uppercase tracking-[0.6em] text-white">
+                        <div className="w-6 sm:w-8 md:w-12 h-[2px] bg-accent" />
+                        <span className="text-[8px] sm:text-[9px] md:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.6em] text-white">
                             The Tea Shop Collection
                         </span>
                     </motion.div>
 
-                    {/* Headline - Massive 3D Typography */}
+                    {/* Headline - Massive 3D Typography - RESPONSIVE */}
                     <motion.h2
-                        className="font-display text-6xl md:text-[14rem] font-black text-white leading-[0.7] tracking-tighter uppercase mb-8 text-3d"
+                        className="font-display text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-[10rem] 2xl:text-[14rem] font-black text-white leading-[0.7] tracking-tighter uppercase mb-4 sm:mb-6 md:mb-8 text-3d"
                         initial={{ rotateY: 90, opacity: 0, z: -200 }}
                         animate={isActive ? {
                             rotateY: 0,
@@ -170,9 +170,9 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                         {drink.name}
                     </motion.h2>
 
-                    {/* Meta Info & Action - Staggered 3D entrance */}
+                    {/* Meta Info & Action - Staggered 3D entrance - RESPONSIVE */}
                     <motion.div
-                        className="flex flex-wrap items-end gap-12"
+                        className="flex flex-col sm:flex-row flex-wrap items-start sm:items-end gap-6 sm:gap-8 md:gap-12"
                         initial={{ y: 60, opacity: 0, z: -50 }}
                         animate={isActive ? {
                             y: 0,
@@ -191,13 +191,13 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                         style={{ transformStyle: 'preserve-3d' }}
                     >
                         <div className="flex flex-col gap-1">
-                            <span className="text-accent text-[10px] md:text-xs font-black uppercase tracking-[0.4em]">Price for Excellence</span>
-                            <span className="text-white text-5xl md:text-8xl font-black leading-none tracking-tighter">${drink.price.toFixed(2)}</span>
+                            <span className="text-accent text-[8px] sm:text-[9px] md:text-xs font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] md:tracking-[0.4em]">Price for Excellence</span>
+                            <span className="text-white text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tighter">${drink.price.toFixed(2)}</span>
                         </div>
 
                         <motion.button
                             onClick={handleOrder}
-                            className="px-16 py-7 md:px-24 md:py-10 bg-white text-black hover:bg-accent hover:text-white rounded-[1.5rem] font-black text-xl md:text-3xl uppercase tracking-widest transition-all duration-700 shadow-3xl active:scale-95"
+                            className="px-8 py-4 sm:px-12 sm:py-5 md:px-16 md:py-7 lg:px-24 lg:py-10 bg-white text-black hover:bg-accent hover:text-white rounded-xl sm:rounded-2xl md:rounded-[1.5rem] font-black text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl uppercase tracking-widest transition-all duration-700 shadow-3xl active:scale-95"
                             whileHover={{ scale: 1.05, z: 150 }}
                             whileTap={{ scale: 0.95 }}
                             style={{ transformStyle: 'preserve-3d' }}
@@ -206,9 +206,9 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                         </motion.button>
                     </motion.div>
 
-                    {/* Description - Slide from side with depth */}
+                    {/* Description - Slide from side with depth - RESPONSIVE */}
                     <motion.p
-                        className="mt-12 text-white/40 text-sm md:text-lg font-bold max-w-xl leading-relaxed tracking-widest uppercase border-l-2 border-accent pl-10 h-16 flex items-center"
+                        className="mt-6 sm:mt-8 md:mt-12 text-white/40 text-xs sm:text-sm md:text-base lg:text-lg font-bold max-w-xl leading-relaxed tracking-wide sm:tracking-wider md:tracking-widest uppercase border-l-2 border-accent pl-4 sm:pl-6 md:pl-10 min-h-[3rem] sm:min-h-[4rem] md:h-16 flex items-center"
                         initial={{ x: -60, opacity: 0, z: -30 }}
                         animate={isActive ? {
                             x: 0,
@@ -231,9 +231,9 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                 </div>
             </motion.div>
 
-            {/* UI Frame - Closest layer with reveal animation */}
+            {/* UI Frame - Closest layer with reveal animation - RESPONSIVE */}
             <motion.div
-                className="absolute inset-0 pointer-events-none z-30 border-[1px] border-white/5 m-8 md:m-16"
+                className="absolute inset-0 pointer-events-none z-30 border-[1px] border-white/5 m-4 sm:m-6 md:m-8 lg:m-16"
                 initial={{ scale: 1.2, opacity: 0, z: -50 }}
                 animate={isActive ? {
                     scale: 1,

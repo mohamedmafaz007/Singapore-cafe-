@@ -88,30 +88,29 @@ const Index = () => {
       </div>
 
       {/* Manual Navigation Controls */}
-      <div className="fixed inset-y-0 left-0 right-0 pointer-events-none z-[60] flex items-center justify-between px-6 md:px-12">
+      <div className="fixed inset-y-0 left-0 right-0 pointer-events-none z-[60] flex items-center justify-between px-3 sm:px-4 md:px-6 lg:px-12">
         <button
           onClick={handlePrev}
-          className="pointer-events-auto w-12 h-12 md:w-20 md:h-20 rounded-full bg-white/5 backdrop-blur-3xl border border-white/5 flex items-center justify-center text-white/20 hover:text-white hover:bg-white/10 transition-all duration-300 group active:scale-90"
+          className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-white/5 backdrop-blur-3xl border border-white/5 flex items-center justify-center text-white/20 hover:text-white hover:bg-white/10 transition-all duration-300 group active:scale-90"
         >
-          <ChevronLeft className="w-6 h-6 md:w-10 md:h-10 group-hover:-translate-x-1 transition-transform" />
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 group-hover:-translate-x-1 transition-transform" />
         </button>
 
         <button
           onClick={handleNext}
-          className="pointer-events-auto w-12 h-12 md:w-20 md:h-20 rounded-full bg-white/5 backdrop-blur-3xl border border-white/5 flex items-center justify-center text-white/20 hover:text-white hover:bg-white/10 transition-all duration-300 group active:scale-90"
+          className="pointer-events-auto w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 rounded-full bg-white/5 backdrop-blur-3xl border border-white/5 flex items-center justify-center text-white/20 hover:text-white hover:bg-white/10 transition-all duration-300 group active:scale-90"
         >
-          <ChevronRight className="w-6 h-6 md:w-10 md:h-10 group-hover:translate-x-1 transition-transform" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 group-hover:translate-x-1 transition-transform" />
         </button>
       </div>
 
       {/* Progress Indicator */}
-      <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-2">
+      <div className="fixed bottom-6 sm:bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-[60] flex items-center gap-1.5 sm:gap-2">
         {allDrinks.map((_, i) => (
           <button
             key={i}
             onClick={() => handleDotClick(i)}
-            className={`transition-all duration-700 rounded-full h-1 cursor-pointer ${currentIndex === i ? 'w-10 bg-accent' : 'w-4 bg-white/10 hover:bg-white/30'
-              }`}
+            className={`transition-all duration-700 rounded-full h-0.5 sm:h-1 cursor-pointer ${currentIndex === i ? 'w-6 sm:w-8 md:w-10 bg-accent' : 'w-2 sm:w-3 md:w-4 bg-white/10 hover:bg-white/30'}`}
           />
         ))}
       </div>
