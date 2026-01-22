@@ -78,7 +78,7 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                 <motion.img
                     src={drink.image}
                     alt={drink.name}
-                    className={`w-full h-full object-cover ${isSplash ? 'brightness-[1.1] contrast-[1.15] saturate-[1.1] drop-shadow-[0_0_20px_rgba(0,0,0,0.4)]' : 'contrast-[1.1] brightness-[0.75]'}`}
+                    className={`w-full h-full object-cover object-center ${isSplash ? 'brightness-[1.05] sm:brightness-[1.1] contrast-[1.1] sm:contrast-[1.15] saturate-[1.1] drop-shadow-[0_0_20px_rgba(0,0,0,0.4)]' : 'contrast-[1.1] brightness-[0.75]'}`}
                     loading="eager"
                     animate={{ scale: isActive ? 1.15 : 1 }}
                     transition={{ duration: 10, ease: "linear" }}
@@ -88,13 +88,13 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                 {isSplash && (
                     <>
                         {/* Micro-Grain for perceived detail */}
-                        <div className="absolute inset-0 opacity-[0.015] pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
+                        <div className="absolute inset-0 opacity-[0.01] sm:opacity-[0.015] pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />
 
                         {/* High-Frequency Sharpness Overlay */}
                         <div className="absolute inset-0 bg-white/5 mix-blend-soft-light pointer-events-none" />
 
                         {/* 8K Depth Vignette */}
-                        <div className="absolute inset-0 shadow-[inset_0_0_200px_rgba(0,0,0,0.5)] pointer-events-none" />
+                        <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.4)] sm:shadow-[inset_0_0_200px_rgba(0,0,0,0.5)] pointer-events-none" />
                     </>
                 )}
 
@@ -120,7 +120,7 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                         >
                             <div className="w-6 sm:w-8 md:w-12 h-[2px] bg-accent" />
                             <span className="text-[8px] sm:text-[9px] md:text-xs font-black uppercase tracking-[0.3em] sm:tracking-[0.4em] md:tracking-[0.6em] text-white">
-                                The Tea Shop Collection
+                                Singapore Cafe Collection
                             </span>
                         </motion.div>
 
@@ -174,21 +174,21 @@ const FullScreenDrink = ({ drink, isActive }: FullScreenDrinkProps) => {
                         <div className="absolute inset-0 bg-black/5 z-10" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/5 z-10" />
 
-                        {/* 8K Glows - Crisp & Vibrant */}
-                        <div className="absolute top-[15%] left-[5%] w-[40vw] h-[40vw] bg-yellow-400/20 blur-[120px] rounded-full animate-light-pulse" />
-                        <div className="absolute top-[10%] right-[10%] w-[45vw] h-[45vw] bg-yellow-300/15 blur-[140px] rounded-full animate-light-pulse [animation-delay:1.5s]" />
-                        <div className="absolute bottom-[20%] left-[15%] w-[35vw] h-[35vw] bg-orange-400/15 blur-[100px] rounded-full animate-light-pulse [animation-delay:0.8s]" />
+                        {/* 8K Glows - Crisp & Vibrant - Responsive Sizes */}
+                        <div className="absolute top-[15%] left-[5%] w-[60vw] h-[60vw] sm:w-[40vw] sm:h-[40vw] bg-yellow-400/15 sm:bg-yellow-400/20 blur-[60px] sm:blur-[120px] rounded-full animate-light-pulse" />
+                        <div className="absolute top-[10%] right-[10%] w-[70vw] h-[70vw] sm:w-[45vw] sm:h-[45vw] bg-yellow-300/10 sm:bg-yellow-300/15 blur-[70px] sm:blur-[140px] rounded-full animate-light-pulse [animation-delay:1.5s]" />
+                        <div className="absolute bottom-[20%] left-[15%] w-[50vw] h-[50vw] sm:w-[35vw] sm:h-[35vw] bg-orange-400/10 sm:bg-orange-400/15 blur-[50px] sm:blur-[100px] rounded-full animate-light-pulse [animation-delay:0.8s]" />
 
                         {/* 8K Sparkles */}
-                        <div className="absolute top-[22%] left-[28%] w-6 h-6 bg-white/90 blur-[6px] rounded-full animate-pulse shadow-[0_0_25px_rgba(255,255,255,0.6)]" />
-                        <div className="absolute top-[15%] right-[35%] w-4 h-4 bg-white/80 blur-[5px] rounded-full animate-pulse [animation-delay:1.2s] shadow-[0_0_20px_rgba(255,255,255,0.5)]" />
+                        <div className="absolute top-[22%] left-[28%] w-3 h-3 sm:w-6 sm:h-6 bg-white/80 sm:bg-white/90 blur-[3px] sm:blur-[6px] rounded-full animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.4)] sm:shadow-[0_0_25px_rgba(255,255,255,0.6)]" />
+                        <div className="absolute top-[15%] right-[35%] w-2 h-2 sm:w-4 sm:h-4 bg-white/70 sm:bg-white/80 blur-[2px] sm:blur-[5px] rounded-full animate-pulse [animation-delay:1.2s] shadow-[0_0_8px_rgba(255,255,255,0.3)] sm:shadow-[0_0_20px_rgba(255,255,255,0.5)]" />
 
                         {/* 8K Light Rays */}
-                        <div className="absolute top-0 left-1/4 w-[4px] h-full bg-gradient-to-b from-yellow-100/15 via-transparent to-transparent rotate-[20deg] blur-xl animate-pulse" />
-                        <div className="absolute top-0 right-1/4 w-[2px] h-full bg-gradient-to-b from-white/10 via-transparent to-transparent -rotate-[15deg] blur-2xl animate-pulse [animation-delay:1.5s]" />
+                        <div className="absolute top-0 left-1/4 w-[1px] sm:w-[4px] h-full bg-gradient-to-b from-yellow-100/10 sm:from-yellow-100/15 via-transparent to-transparent rotate-[20deg] blur-md sm:blur-xl animate-pulse" />
+                        <div className="absolute top-0 right-1/4 w-[1px] sm:w-[2px] h-full bg-gradient-to-b from-white/5 sm:from-white/10 via-transparent to-transparent -rotate-[15deg] blur-lg sm:blur-2xl animate-pulse [animation-delay:1.5s]" />
 
                         {/* Bloom Layer */}
-                        <div className="absolute inset-0 bg-yellow-400/5 mix-blend-screen pointer-events-none blur-[100px]" />
+                        <div className="absolute inset-0 bg-yellow-400/5 mix-blend-screen pointer-events-none blur-[40px] sm:blur-[100px]" />
                     </div>
                 )}
             </motion.div>
