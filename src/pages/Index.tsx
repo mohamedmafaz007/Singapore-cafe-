@@ -1,10 +1,14 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import FullScreenDrink from '@/components/FullScreenDrink';
-import { hotDrinks, coldDrinks } from '@/data/drinks';
+import { hotDrinks, coldDrinks, Drink } from '@/data/drinks';
 
 const Index = () => {
-  const allDrinks = useMemo(() => [...hotDrinks, ...coldDrinks], []);
+  const allDrinks = useMemo(() => [
+    { id: 'splash', name: 'Al Sheika', price: 0, category: 'hot', image: '/splash.jpg', isSplash: true },
+    ...hotDrinks,
+    ...coldDrinks
+  ], []);
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -65,6 +69,7 @@ const Index = () => {
 
   return (
     <div className="fixed inset-0 w-screen h-screen bg-black overflow-hidden">
+
       {/* Scroll Container */}
       <div
         ref={scrollRef}
@@ -80,7 +85,7 @@ const Index = () => {
             className="h-full w-full min-w-full flex-shrink-0 snap-center snap-always"
           >
             <FullScreenDrink
-              drink={drink}
+              drink={drink as Drink}
               isActive={currentIndex === index}
             />
           </div>

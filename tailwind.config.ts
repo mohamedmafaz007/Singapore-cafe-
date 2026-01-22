@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -89,12 +90,22 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.5" },
         },
+        "loading-bar": {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        "light-pulse": {
+          "0%, 100%": { opacity: "0.3", transform: "scale(1)" },
+          "50%": { opacity: "0.8", transform: "scale(1.1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         shimmer: "shimmer 2s infinite linear",
         pulse: "pulse 2s infinite ease-in-out",
+        "loading-bar": "loading-bar 3s linear forwards",
+        "light-pulse": "light-pulse 3s infinite ease-in-out",
       },
       boxShadow: {
         glass: "0 8px 32px hsla(25, 50%, 20%, 0.08)",
@@ -104,5 +115,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
